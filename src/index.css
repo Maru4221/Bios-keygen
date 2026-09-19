@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-color: #fafafa;
+  --card-bg: #ffffff;
+  --accent-color: #0f172a;
+  --accent-hover: #334155;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --font-main: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --focus-ring: rgba(15, 23, 42, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --accent-color: #f8fafc;
+    --accent-hover: #cbd5e1;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --focus-ring: rgba(248, 250, 252, 0.2);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 24px;
+  min-height: 100vh;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.container {
+  max-width: 720px;
+  width: 100%;
+}
+
+header {
+  margin-bottom: 48px;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.input-section {
+  padding: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  right: 16px;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+input {
+  width: 100%;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 40px 12px 16px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.result-card {
+  padding: 24px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.bios-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.info-icon {
+  color: var(--text-secondary);
+}
+
+.passwords-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.password-item {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.password-item:hover {
+  border-color: var(--text-secondary);
+}
+
+.copy-icon {
+  color: var(--text-secondary);
+}
+
+.password-item:hover .copy-icon {
+  color: var(--text-primary);
+}
+
+.result-footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.calc-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.no-results {
+  text-align: center;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.examples > span:first-child {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-right: 4px;
+}
+
+.example-tag {
+  font-size: 0.75rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.example-tag:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+footer {
+  margin-top: auto;
+  padding: 32px 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+}
